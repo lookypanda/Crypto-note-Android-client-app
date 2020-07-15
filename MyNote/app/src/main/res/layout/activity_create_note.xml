@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateNote"
+    android:id="@+id/create_root">
+
+    <EditText
+        android:id="@+id/UserNote"
+        android:layout_width="329dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:ems="10"
+        android:hint="Text of note"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/DeadlineDate"
+        android:layout_width="145dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:ems="10"
+        android:hint="Deadline date"
+        android:inputType="date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/UserNote" />
+
+    <Button
+        android:id="@+id/dateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/color_white"
+        android:onClick="setDate"
+        android:text="Set Deadline"
+        android:typeface="sans"
+        app:layout_constraintStart_toEndOf="@+id/DeadlineDate"
+        app:layout_constraintTop_toTopOf="@+id/DeadlineDate" />
+
+    <EditText
+        android:id="@+id/cryptPass"
+        android:layout_width="221dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:ems="10"
+        android:hint="Encryption pass"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DeadlineDate" />
+
+    <Button
+        android:id="@+id/EncryptButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:backgroundTint="@color/color_white"
+        android:text="Encrypt"
+        android:typeface="sans"
+        app:layout_constraintStart_toEndOf="@+id/cryptPass"
+        app:layout_constraintTop_toTopOf="@+id/cryptPass" />
+
+    <Button
+        android:id="@+id/Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:onClick="AddNote"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cryptPass" />
+
+</android.support.constraint.ConstraintLayout>

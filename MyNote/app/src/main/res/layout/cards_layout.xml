@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:tag="cards main container">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardBackgroundColor="@color/color_white"
+        card_view:cardCornerRadius="5dp"
+
+        card_view:cardElevation="3dp"
+        card_view:cardPreventCornerOverlap="true"
+        card_view:cardUseCompatPadding="true"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_weight="2"
+                >
+
+                <TextView
+                    android:id="@+id/textViewNoteText"
+                    android:layout_width="293dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="textViewNoteText"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/CheckBoxEncrypted" />
+
+                <TextView
+                    android:id="@+id/textViewCreationDate"
+                    android:layout_width="252dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:text="textViewCreationDate"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewNoteText" />
+
+                <TextView
+                    android:id="@+id/textViewTillDeadline"
+                    android:layout_width="249dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:text="TillDeadline"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    card_view:layout_constraintCircleRadius="5dp"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewCreationDate"
+                    android:background="@drawable/rounded_corner"/>
+
+                <CheckBox
+                    android:id="@+id/CheckBoxEncrypted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="96dp"
+                    android:clickable="false"
+                    android:text="Encrypted"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toTopOf="parent"
+                    card_view:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textViewDeadlineDate"
+                    android:layout_width="214dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:text="Deadline Date"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    card_view:layout_constraintStart_toStartOf="parent"
+                    card_view:layout_constraintTop_toBottomOf="@+id/textViewTillDeadline" />
+
+                <TextView
+                    android:id="@+id/textViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="TextView"
+                    card_view:layout_constraintBottom_toBottomOf="parent"
+                    card_view:layout_constraintEnd_toEndOf="parent"
+                    tools:visibility="gone" />
+
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Note_list3">
+    <item
+        android:id="@+id/reload"
+        android:orderInCategory="100"
+        android:title="Reload notes"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/calendar"
+        android:orderInCategory="100"
+        android:title="Deadline calendar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/logout"
+        android:orderInCategory="100"
+        android:title="Logout"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Sort_mode"
+        android:orderInCategory="100"
+        android:title="Sorting mode"
+        app:showAsAction="never" />
+
+
+</menu>

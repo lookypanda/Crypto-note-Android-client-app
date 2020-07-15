@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoteActivity"
+    android:id="@+id/note_root">
+
+    <EditText
+        android:id="@+id/note_text"
+        android:layout_width="306dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:autoText="false"
+        android:backgroundTint="@color/colorPrimary"
+        android:ems="10"
+        android:gravity="center_vertical"
+        android:hint="Text of Note"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextDecryptPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:ems="10"
+        android:gravity="center_horizontal|center"
+        android:hint="Crypt password"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Create_date_text" />
+
+    <Button
+        android:id="@+id/buttonDecrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:backgroundTintMode="screen"
+        android:text="Decrypt"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDecryptPass" />
+
+    <TextView
+        android:id="@+id/deadline_date"
+        android:layout_width="301dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:gravity="center_horizontal|center"
+        android:inputType="date"
+        android:text="deadline date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTillDeadline" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/color_1"
+        android:onClick="Delete"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deadline_date" />
+
+    <TextView
+        android:id="@+id/textViewTillDeadline"
+        android:layout_width="301dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:text="TillDeadline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDecrypt" />
+
+    <TextView
+        android:id="@+id/Create_date_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_text" />
+
+    <CheckBox
+        android:id="@+id/checkBoxCrypt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="Crypted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</android.support.constraint.ConstraintLayout>

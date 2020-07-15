@@ -1,0 +1,134 @@
+package e.alexk.mynote;
+
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.helper.Validate;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+class Card {
+    String title;
+    String content;
+
+    Card(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+}
+
+
+ class RVAdapter extends RecyclerView.Adapter<RVAdapter.CardViewHolder> {
+     List cards;
+
+    public static class CardViewHolder extends RecyclerView.ViewHolder {
+
+        CardView cardView;
+
+        CardViewHolder(CardView cv) {
+            super(cv);
+            cardView = cv;
+        }
+    }
+
+    RVAdapter(List cards){
+        this.cards = cards;
+    }
+
+    @Override
+    public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        CardView cv = (CardView) LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.cardview, parent, false);
+        return new CardViewHolder(cv);
+    }
+
+    @Override
+    public void onBindViewHolder(CardViewHolder cardViewHolder, int position) {
+        CardView cardView = cardViewHolder.cardView;
+        TextView title = (TextView)cardView.findViewById(R.id.title);
+        title.setText(cards.get(position).title);
+        TextView content = (TextView)cardView.findViewById(R.id.content);
+        content.setText(cards.get(position).content);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return cards.size();
+    }
+}
+
+
+public class Note_list3 extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_note_list3);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("My Note: "+ getIntent().getStringExtra("login")+"'s notes");
+        setSupportActionBar(toolbar);
+        String html=getIntent().getStringExtra("html");
+        Document doc = Jsoup.parse(html);
+        Element login_ok = doc.select("div#OK").first();
+        if(login_ok!=null)
+        {
+            Toast.makeText(getApplicationContext(), login_ok.text(), Toast.LENGTH_SHORT).show();
+        }
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+
+        RecyclerView rv = (RecyclerView)findViewById(R.id.res_view_notes);
+        rv.setHasFixedSize(true);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        rv.setLayoutManager(llm);    initializeData();
+        initializeAdapter();
+    }
+
+
+    private List cards;
+    private RecyclerView rv;
+
+    private void initializeData(){
+        cards = new ArrayList<>();
+        cards.add(new Card("Card 1", "Content 1"));
+        cards.add(new Card("Card 2", "Content 2"));
+        cards.add(new Card("Card 3", "Content 3"));
+        cards.add(new Card("Card 4", "Content 4"));
+        cards.add(new Card("Card 5", "Content 5"));
+    }
+
+    private void initializeAdapter(){
+        RVAdapter adapter = new RVAdapter(cards);
+        rv.setAdapter(adapter);
+    }
+    void showSnackbar(int position) {
+        Snackbar.make(rv, "Карточка с номером "+position, Snackbar.LENGTH_LONG).show();
+    }
+}
